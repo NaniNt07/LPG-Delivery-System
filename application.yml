@@ -1,0 +1,50 @@
+server:
+  port: 8099
+logging:
+  config: classpath:logback-local.xml
+  level:
+    org.springframework.sql: DEBUG
+
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: your-email@gmail.com
+    password: your-email-password
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+  jwt:
+    secret: "yN%8v3T!b2P@5L$9xR6&zQ1W*eY#uG4"
+    expiration: 3600000
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/lpg_db
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update                          # Hibernate DDL mode (update will apply schema changes)
+    show-sql: true                              # Show SQL statements in logs
+  sql:
+    init:
+      schema-locations: file:/home/rahul/Desktop/lpg_delivery/sql/schema.sql
+      data-locations: file:/home/rahul/Desktop/lpg_delivery/sql/data.sql
+      mode: never
+
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+
